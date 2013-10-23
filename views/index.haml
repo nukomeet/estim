@@ -1,1 +1,33 @@
-%h1 Sinatra has taken the stage
+%h1 Estim
+%h2 Fill the form to get your quote 
+%form#SignupForm{:action => "/estim", :method => "post"}
+  %fieldset
+  .row
+    .col-md-4 
+      %legend The client
+      %input{:name => "client_name", :placeholder => "Your client name", :type => "text"}/
+    .col-md-4 
+      %fieldset
+        %legend The mission
+        %textarea{:name => "mission", :placeholder => "Describe shortly the mission", :rows => "5", :cols => "50"}
+  %hr
+  .row
+    .col-md-4
+      %fieldset
+        %p Is Nukomeet in charge of setting up the hosting?
+    .col-md-4
+      %fieldset
+      %p
+        %label{:for => "hosting"} Yes
+        %input#yes{:checked => "checked", :name => "hosting", :type => "radio", :value => "yes"}/
+        %label{:for => "hosting"} No
+        %input#no{:name => "hosting", :type => "radio", :value => "no"}/
+  %hr
+  .row
+    .col-md-4
+      %fieldset
+        %legend Rate
+        %p
+          %input{:name => "rate", :placeholder => "Rate per day", :type => "text"}/
+        = succeed "" do
+          %button.btn.btn-info{:type => "submit"} Estimate
