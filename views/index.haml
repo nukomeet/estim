@@ -1,33 +1,46 @@
 %h1 Estim
 %h2 Fill the form to get your quote 
 %form#SignupForm{:action => "/estim", :method => "post"}
-  %fieldset
   .row
-    .col-md-4 
-      %legend The client
-      %input{:name => "client_name", :placeholder => "Your client name", :type => "text"}/
-    .col-md-4 
+    .col-md-1
+    .col-md-3 
       %fieldset
-        %legend The mission
-        %textarea{:name => "mission", :placeholder => "Describe shortly the mission", :rows => "5", :cols => "50"}
-  %hr
+        %legend The client
+        %input{:name => "client_name", :placeholder => "Your client name", :type => "text"}/
+    .col-md-3 
+      %fieldset
+        %legend Name the mission
+        %input{:name => "project_name", :placeholder => "Give me a name", :type => "text"}
+    .col-md-3 
+      %fieldset
+        %legend Describe the mission
+        %textarea{:name => "mission", :placeholder => "Describe shortly the mission", :rows => "5", :cols => "40"}
   .row
-    .col-md-4
-      %fieldset
-        %p Is Nukomeet in charge of setting up the hosting?
-    .col-md-4
-      %fieldset
-      %p
-        %label{:for => "hosting"} Yes
-        %input#yes{:checked => "checked", :name => "hosting", :type => "radio", :value => "yes"}/
-        %label{:for => "hosting"} No
-        %input#no{:name => "hosting", :type => "radio", :value => "no"}/
+    .col-md-1
+    .col-md-8
+      %h3 Pick your ingredients (use tab and arrows to go faster)
+  - @stories.each do |story|
+    %hr
+    .row
+      .col-md-1
+      .col-md-4
+        %fieldset
+          = story[:name]
+      .col-md-4
+        %fieldset
+          %label{:for => "#{story[:name]}"} Yes
+          %input#yes{:checked => "checked", :name => "#{story[:name]}", :type => "radio", :value => "yes"}/
+          %label{:for => "#{story[:name]}"} No
+          %input#no{:name => "#{story[:name]}", :type => "radio", :value => "no"}/
   %hr
   .row
     .col-md-4
       %fieldset
         %legend Rate
-        %p
-          %input{:name => "rate", :placeholder => "Rate per day", :type => "text"}/
+    .col-md-4
+      %fieldset
+        %input{:name => "rate", :placeholder => "Rate per day", :type => "text"}/
+    .col-md-4
+      %fieldset
         = succeed "" do
           %button.btn.btn-info{:type => "submit"} Estimate
