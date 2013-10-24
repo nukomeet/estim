@@ -1,23 +1,31 @@
-# Sinatra Bootstrap
+# Estim is an estimation machine
 
-## A simple Sinatra starting point
+## Origin  
 
-Sinatra Bootstrap supports:
+Last year when I was in Sevilla we had defined a list of standard items that are asked in most of the rails projects and did some poker planning on it, to speed up the redaction of estimates (see 'spec library' in Drive for the original document). 
+For those who wonder what poker plannig is: * [visit me](http://en.wikipedia.org/wiki/Planning_poker)
 
+## Technology 
+
+Estim is written in ruby and uses Sinatra. 
+It supports: 
 * [Haml](http://haml-lang.com/)
 * [Sass](http://sass-lang.com/)
 * [Compass](https://github.com/chriseppstein/compass)
 * [jQuery](http://jquery.com/)
+A number of helpful rake tasks are already included.
 
-## What is the purpose of Sinatra Bootstrap?
+## Structure 
 
-I created Sinatra Bootstrap in order to have a consistent starting point for my Sinatra projects. I like having Haml, Sass and Compass available to me in every project, likewise jQuery makes its way into every production as well. A number of helpful rake tasks have also been included.
+I used Sinatra Bootstrap project on Github as an initial template. 
 
-## How do I get started?
+The list of items to estimate is defined in app.rb. There are only two views: index.haml, with the form to fill, and estim.haml with the results. I used the same template as in Drive (template quote) for estim.haml.
 
-    bundle install
+## Getting started
 
-## How do I start the application?
+Clone the project
+
+bundle install
 
 Start the app by running:
 
@@ -39,12 +47,7 @@ There are a few helper Rake tasks that will help you to clear and compile your S
     rake generate          # Generate a new project at dir=foo
     rake s                 # Run the app
 
-## License
+## Future developments 
 
-Copyright (c) Adam Stacoviak
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Adding an angularJS layer to edit the estimated days.
+Using Google Drive API to create there the corresponding estimation
