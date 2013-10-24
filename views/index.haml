@@ -1,5 +1,9 @@
 %h1 Estim
-%h2 Fill the form to get your quote 
+.row
+  .col-md-1
+  .col-md-5 
+    %h2 Fill the form to get your quote 
+%hr
 %form#SignupForm{:action => "/estim", :method => "post"}
   .row
     .col-md-1
@@ -19,14 +23,26 @@
     .col-md-1
     .col-md-8
       %h3 Pick your ingredients (use tab and arrows to go faster)
+  %hr
+  .row
+    .col-md-1
+    .col-md-2
+      %h3 name
+    .col-md-4
+      %h3 description
+    .col-md-3
+      %h3 pick me
   - @stories.each do |story|
     %hr
     .row
       .col-md-1
-      .col-md-4
+      .col-md-2
         %fieldset
           = story[:name]
       .col-md-4
+        %fieldset
+          = story[:desc]
+      .col-md-3
         %fieldset
           %label{:for => "#{story[:name]}"} Yes
           %input#yes{:checked => "checked", :name => "#{story[:name]}", :type => "radio", :value => "yes"}/
@@ -34,13 +50,14 @@
           %input#no{:name => "#{story[:name]}", :type => "radio", :value => "no"}/
   %hr
   .row
-    .col-md-4
+    .col-md-1
+    .col-md-2
       %fieldset
         %legend Rate
     .col-md-4
       %fieldset
         %input{:name => "rate", :placeholder => "Rate per day", :type => "text"}/
-    .col-md-4
+    .col-md-3
       %fieldset
         = succeed "" do
           %button.btn.btn-info{:type => "submit"} Estimate
