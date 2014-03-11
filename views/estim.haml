@@ -1,26 +1,32 @@
 .row
   .col-md-10
     %img.pull-right{:src => "images/logo.png"}/
+
 .row
   .col-md-10
     #nukomeet.pull-right
-      %p SAS Nukomeet          
+      %p SAS Nukomeet
       %p 750 621 518 RCS Paris
       %p 17 rue de Javel
       %p  75015 Paris France
-      
-%h1 Quote
-%hr
+
 .row
   .col-md-2
   .col-md-8
-    %h2 #{@project_name} for #{@client_name} 
+    %h1 Quote
+
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h2 #{@project_name} for #{@client_name}
     %hr
     %h3 About
     %p Nukomeet is a team of pluridisciplinary individuals that like to solve complex problems using technology, with a strong expertise on web and mobile and a taste for open-source and social innovation.
-    %ul 
+    %ul
       %li
-        %a{:href => "http://github.com/nukomeet"} Our open source projects  
+        %a{:href => "http://github.com/nukomeet"} Our open source projects
       %li
         %a{:href => "http://nukomeet.com/team"} The Team
       %li
@@ -29,28 +35,28 @@
     %h3 Latest projects
     .well
       %ul
-        %li * Automated cloud deployment tools controlled through a web interfaced API (back end: python, deployment: chef and pupper, interface: angular JS). For Commerce Guys.
-        %li *  Partial remake of Navigart software, used by the public contemporary art collections network (Centre Georges Pompidou, MacVal...etc). Enables online visioning and search of works of art. Still in progress, Nukomeet works on improving the API interacting with all the works of art and the realisation of an elegant and responsive front end, including multi criteria search in real time (Angular JS). For Videomuseum.
-        %li * Creation of a dashboard for Polyspot (Big Data).
-        %li * Process automation for Freyssinet (subsidiary of Vinci, construction), Ruby on Rails.
-        %li * Visually immersive application for Arte and the Chateau de Versailles: http://lenotre.chateauversailles.fr  
+        %li Automated cloud deployment tools controlled through a web interfaced API (back end: python, deployment: chef and pupper, interface: angular JS). For Commerce Guys.
+        %li  Partial remake of Navigart software, used by the public contemporary art collections network (Centre Georges Pompidou, MacVal...etc). Enables online visioning and search of works of art. Still in progress, Nukomeet works on improving the API interacting with all the works of art and the realisation of an elegant and responsive front end, including multi criteria search in real time (Angular JS). For Videomuseum.
+        %li Creation of a dashboard for Polyspot (Big Data).
+        %li Process automation for Freyssinet (subsidiary of Vinci, construction), Ruby on Rails.
+        %li Visually immersive application for Arte and the Chateau de Versailles: http://lenotre.chateauversailles.fr
 
     %hr
 
     %h3 Context and description of the mission
-    .well 
+    .well
       #{@mission}
     %hr
-    %h3 Detailed estimate 
+    %h3 Detailed estimate
     %table.table.table-bordered
       %thead
         %tr
           %th Item
-          %th Description 
-          %th Estimation 
+          %th Description
+          %th Estimation
       %tbody
         - @stories.each do |story|
-          - if params[:"#{story[:name]}"] == "yes" 
+          - if params[:"#{story[:name]}"] == "yes"
             %tr
               %td
                 = story[:name]
@@ -60,45 +66,45 @@
                 = story[:days]
         %tr
           %td
-            %strong Total 
+            %strong Total
           %td
-            %strong Total number of days estimated 
-          %td 
+            %strong Total number of days estimated
+          %td
             - total = 0
             - @stories.each do |story|
-              - if params[:"#{story[:name]}"] == "yes" 
-                - total += story[:days] 
+              - if params[:"#{story[:name]}"] == "yes"
+                - total += story[:days]
             = total
     %hr
-    %h3 Price 
+    %h3 Price
     %p
-      Developments are estimated at 
+      Developments are estimated at
       = total
       days with a rate of #{@rate} euro per day.
-    %p 
+    %p
       Price :
       %br
       %strong
         = total*@rate.to_i
-        euros without taxes 
+        euros without taxes
       %br
-      VAT 19.6% 
+      VAT 19.6%
       %br
       = 1.196*total*@rate.to_i
-      euros with taxes 
+      euros with taxes
     %hr
     %h3 Planning
     %p
-      We commit to deliver the project under 
+      We commit to deliver the project under
       = total
       working days (
       = total/5
-      weeks) starting from the first day of development. 
-    %p This commitment is valid only if the client delivers all the necessary matieral for the project on time (mockups, images, texts, credentials...) and answers without excessive delay to the questions of the team.  
+      weeks) starting from the first day of development.
+    %p This commitment is valid only if the client delivers all the necessary matieral for the project on time (mockups, images, texts, credentials...) and answers without excessive delay to the questions of the team.
     %p A dedicated chat room will be open where the client will be able to follow closely the project. Every 10 days a status meeting can be organised with the client.
     %hr
-    %h3 Browser 
-    %p Except if specifically mentioned by the client, obsolete browsers won’t be supported. The software provided will be compatible with the latest version only of Safari, IE, Chrome and Firefox.  
+    %h3 Browser
+    %p Except if specifically mentioned by the client, obsolete browsers won’t be supported. The software provided will be compatible with the latest version only of Safari, IE, Chrome and Firefox.
     %hr
     %h3 Payments
     %p The payment is in three parts:
